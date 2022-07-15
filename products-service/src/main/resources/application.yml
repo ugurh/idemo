@@ -1,6 +1,17 @@
 spring:
   application:
     name: products-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: com.mysql.jdbc.Driver
+    open-in-view: false
+    generate-ddl: true
+    show-sql: true
+  datasource:
+    url: "jdbc:mysql://localhost:3306/test"
+    username: root
+    password: mysql
 
 eureka:
   client:
@@ -11,3 +22,11 @@ eureka:
 
 server:
   port: 0
+
+# Logger configuration
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+  level:
+    org.springframework: info
+    org.hibernate: debug
